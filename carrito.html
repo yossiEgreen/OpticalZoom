@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LOGOoz.png" alt="Logo de la empresa">
+        </div>
+        <div class="nombre-empresa">
+            <h1>Óptica Online</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="user.html">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </nav>
+        <a href="index.html"><button class="boton-cerrar-sesion">Cerrar Sesión</button></a>
+    </header>
+
+    <main>
+        <h2 class="titulo">Carrito de Compras</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del Producto</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-carrito">
+                <!-- Aquí se agregarán las filas con los productos del carrito -->
+            </tbody>
+        </table>
+        <button class="boton-cancelar" onclick="borrarProductos()">Cancelar</button>
+        <div class="total-pagar" id="total-pagar">Total a pagar: $0.00</div>
+    </main>
+
+    <footer>
+        <div class="redes-sociales">
+            <a href="#"><img src="f.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+        <div class="informacion">
+            <p>Contáctanos: info@opticaonline.com</p>
+            <p>Teléfono: 123-456-7890</p>
+            <p>Dirección: Calle Principal, Ciudad, País</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el carrito de localStorage
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Mostrar los productos del carrito en la tabla
+            var tablaCarrito = document.getElementById('tabla-carrito');
+            carrito.forEach(function(producto) {
+                var fila = tablaCarrito.insertRow();
+                fila.insertCell(0).innerText = producto.nombre;
+                fila.insertCell(1).innerText = producto.descripcion;
+                fila.insertCell(2).innerText = producto.cantidad;
+                fila.insertCell(3).innerText = '$' + (producto.cantidad * producto.precioUnitario).toFixed(2);
+                var botonEliminar = document.createElement('button');
+                botonEliminar.textContent = 'Eliminar';
+                botonEliminar.classList.add('boton-eliminar');
+                botonEliminar.onclick = function() {
+                    eliminarProducto(producto);
+                };
+                fila.insertCell(4).appendChild(botonEliminar);
+            });
+
+            // Calcular el total a pagar
+            var totalPagar = carrito.reduce(function(total, producto) {
+                return total + (producto.cantidad * producto.precioUnitario);
+            }, 0);
+
+            document.getElementById('total-pagar').textContent = 'Total a pagar: $' + totalPagar.toFixed(2);
+        });
+
+        // Función para eliminar un producto del carrito
+        function eliminarProducto(producto) {
+            var carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            var index = carrito.indexOf(producto);
+            if (index !== -1) {
+                carrito.splice(index, 1);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                location.reload(); // Recargar la página para reflejar los cambios
+            }
+        }
+
+        // Función para borrar todos los productos del carrito
+        function borrarProductos() {
+            localStorage.removeItem('carrito');
+            location.reload(); // Recargar la página para reflejar los cambios
+        }
+    </script>
+</body>
+</html>

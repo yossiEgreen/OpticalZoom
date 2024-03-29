@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Panel de Administrador</title>
+    <link rel="stylesheet" href=producto.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LOGOoz.png" alt="Logo de la empresa">
+        </div>
+        <div class="nombre-empresa">
+            <h1>Panel de Administrador</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="admin.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="#pedidos">Pedidos</a></li>
+            </ul>
+        </nav>
+        <a href="index.html" class="cerrar-sesion">Cerrar Sesión</a>
+    </header>
+
+    <div class="contenido">
+        <h2>Productos</h2>
+        <!-- Contenido de la página de productos aquí -->
+
+        <!-- Formulario para subir productos -->
+        <div class="subir-producto">
+            <h3>Subir Producto</h3>
+            <form id="formularioProducto">
+                <input type="text" id="nombreProducto" placeholder="Nombre del producto" required>
+                <input type="text" id="descripcionProducto" placeholder="Descripción del producto" required>
+                <input type="number" id="precioProducto" placeholder="Precio del producto" required>
+                <input type="file" id="imagenProducto" accept="image/*" required>
+                <button type="submit">Subir Producto</button>
+            </form>
+        </div>
+
+        <!-- Lista de productos -->
+        <div class="lista-productos">
+            <!-- Aquí se mostrarán los productos subidos -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="redes-sociales">
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+        <div class="informacion">
+            <p>Contáctanos: info@opticaonline.com</p>
+            <p>Teléfono: 123-456-7890</p>
+            <p>Dirección: Calle Principal, Ciudad, País</p>
+        </div>
+    </footer>
+
+    <script src="productos.js"></script>
+</body>
+</html>

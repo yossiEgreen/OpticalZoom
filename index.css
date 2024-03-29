@@ -1,0 +1,146 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajustar tamaño del logo según necesidades */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+button.inicio-sesion {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.carousel-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.segmentos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.segmento {
+    text-align: center;
+    margin: 0 20px;
+    flex: 1 1 200px;
+}
+
+.segmento h2 {
+    color: #333;
+}
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    color: #333;
+}
+
+.producto p {
+    color: #666;
+}
+
+.producto button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.mapa-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.redes-sociales {
+    margin-bottom: 10px;
+}
+
+.redes-sociales a {
+    margin-right: 10px;
+}
+
+.redes-sociales img {
+    width: 30px; /* Ajustar tamaño de los iconos de redes sociales según necesidades */
+    height: auto;
+}
+
+.informacion p {
+    margin-bottom: 5px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+    .segmento {
+        margin: 10px;
+    }
+
+    .productos-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
